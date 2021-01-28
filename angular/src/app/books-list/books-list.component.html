@@ -38,7 +38,9 @@
           <td>{{ value.author }}</td>
 
 
-          <td><button (click)="deleteProduct(value.id)" class="delete btn" style="background-color: red;">xóa</button>
+<!--          <td><button (click)="deleteProduct(value.id)" class="delete btn" style="background-color: red;">xóa</button>-->
+<td>
+            <a (click)="deleteProduct(value.id)" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn muốn xóa chứ?')" >Xóa</a>
             <a [routerLink]="['/update',value.id]" routerLinkActive="active" class="btn btn-warning" style="margin-left: 10px">sửa</a>
           </td>
         </tr>
