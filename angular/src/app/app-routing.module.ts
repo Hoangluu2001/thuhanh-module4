@@ -4,9 +4,10 @@ import {BooksListComponent} from "./books-list/books-list.component";
 import {AddBooksComponent} from "./add-books/add-books.component";
 import {EditBookComponent} from "./edit-book/edit-book.component";
 import {BookDetailComponent} from "./book-detail/book-detail.component";
+import {NavbarComponent} from "./navbar/navbar.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '' , pathMatch: 'full'},
+  {path: '', component:BooksListComponent , pathMatch: 'full'},
   {path: 'books' , component: BooksListComponent},
   {path: 'add' ,component: AddBooksComponent},
   {path: 'update/:id', component:EditBookComponent},

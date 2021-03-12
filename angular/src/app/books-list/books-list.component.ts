@@ -12,6 +12,18 @@ import { BooksService } from '../books.service';
 })
 export class BooksListComponent implements OnInit {
   book!: Observable<Books[]>;
+  filter:any;
+
+
+  key: string = 'name'; //set default
+  reverse: boolean = false;
+  sort(key: any){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
+  //initializing p to one
+  p: number = 1;
 
 
   constructor(private BookService: BooksService, private router: Router) { }
@@ -24,14 +36,15 @@ export class BooksListComponent implements OnInit {
     this.book = this.BookService.getBooklist();
   }
 
-  deleteProduct(id: number) {
-    console.log(id);
-    this.BookService.deleteBook(id).subscribe(
-      (data) => {
-        this.reloadData();
-      },
-      (error) => console.log(error)
-    );
+
+  deleteProduct(id: number){
+    if(confirm("Bạn Có Chắc Chắn Muốn Xóa " + id)){
+      this.BookService.deleteBook(id).subscribe(
+        data => {
+          this.reloadData();
+        },error => console.log(error)
+      )
+    }
   }
 
   bookDetail(id: number) {
