@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Books } from '../books';
-import { BooksService } from '../books.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Books} from '../books';
+import {BooksService} from '../books.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
 @Component({
   selector: 'app-edit-book',
   templateUrl: './edit-book.component.html',
@@ -12,14 +13,14 @@ export class EditBookComponent implements OnInit {
   id!: number;
   book!: Books;
   submitted = false;
-  validateForm:any = FormGroup;
+  validateForm: any = FormGroup;
 
   constructor(
     private route: ActivatedRoute, private router: Router,
     private BooksService: BooksService,
     private fb: FormBuilder
-
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
 
@@ -46,7 +47,6 @@ export class EditBookComponent implements OnInit {
   onSubmit() {
     console.log(this.validateForm);
   }
-
 
 
   editBook() {

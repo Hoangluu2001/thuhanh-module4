@@ -1,9 +1,8 @@
-import { BooksService } from '../books.service';
-import { Books } from '../books';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {BooksService} from '../books.service';
+import {Books} from '../books';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-
 
 
 @Component({
@@ -15,11 +14,13 @@ export class AddBooksComponent implements OnInit {
 
   books: Books = new Books();
   submitted = false;
-  validateForm:any = FormGroup;
+  validateForm: any = FormGroup;
+
   constructor(private BookService: BooksService,
               private router: Router,
               private fb: FormBuilder,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -36,14 +37,13 @@ export class AddBooksComponent implements OnInit {
   }
 
 
-
   newBook(): void {
     this.submitted = false;
     this.books = new Books();
   }
 
 
-  addBooks(){
+  addBooks() {
     this.BookService.addBook(this.books).subscribe(
       data => {
         console.log(data);
